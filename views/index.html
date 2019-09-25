@@ -14,11 +14,32 @@
     <div class="col-md-9">
 
       <!-- display tweets here -->
+
+      {% if showForm %}
+      <form action="/tweets" method="POST">
+        <label for="name_field">Name:</label>
+        <input name="name" type="text" value = "{{name}}" id="name_field" />
+        <label for="text_field">Text:</label>
+        <input name="text" type="text" id="text_field" style="width: 350px;" />
+        <input type="submit" value="Submit" />
+      </form>
+    {% endif %}
+
+
       {% for tweet in tweets %}
         <li style = "list-style: none">
-          <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" style ="height: 80px; width: 80px" alt="">
-          <span>{{tweet.name}}</span>
-          <a href="http://localhost:3000/{{tweet.name}}">{{tweet.content}}</a>
+
+          <div class="" style = "padding: 10px">
+            <img src="https://blog.addthiscdn.com/wp-content/uploads/2015/09/TwitterTips.png" style ="height: 80px; width: 90px; float: left; padding" alt="">
+            <a href="/users/{{tweet.name}}" style = "font-weight: bold; font-size: 18px; float: left; padding-left: 10px">{{tweet.name}}</a>
+            <br>
+            <br>
+            <div class="" style = "float: left">
+              <a href="/tweets/{{tweet.id}}" style = "padding-left: 10px"">{{tweet.content}}</a>
+            </div>
+            <br>
+          </div>
+          <br>
 
         </li>
       {% endfor %}

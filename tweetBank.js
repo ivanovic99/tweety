@@ -1,8 +1,8 @@
 const _ = require("lodash");
 var data = [];
-
+var acum = 0;
 function add (name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name: name, content: content, id: acum++});
 }
 function list () {
   return _.cloneDeep(data);
@@ -10,6 +10,7 @@ function list () {
 function find (properties) {
   return _.cloneDeep(_.filter(data, properties));
 }
+
 
 module.exports = { add: add, list: list, find: find };
 
@@ -29,5 +30,3 @@ const getFakeTweet = function() {
 for (let i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 };
-
-console.log(data)
