@@ -15,7 +15,12 @@
 
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+        <li style = "list-style: none">
+          <img src="http://qnimate.com/wp-content/uploads/2014/03/images2.jpg" style ="height: 80px; width: 80px" alt="">
+          <span>{{tweet.name}}</span>
+          <a href="http://localhost:3000/{{tweet.name}}">{{tweet.content}}</a>
+
+        </li>
       {% endfor %}
 
     </div>

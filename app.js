@@ -26,12 +26,12 @@ app.use("/", midW1, function(req, res, next) {
 
 
 
-app.get("/", function(req, res) {
-
-  nunjucks.render('index.html', {}, function (err, output) {
-    res.send(output);
-  });
-});
+// app.get("/", function(req, res) {
+//
+//   nunjucks.render('index.html', function (err, output) {
+//     res.send(output);
+//   });
+// });
 
 
 
